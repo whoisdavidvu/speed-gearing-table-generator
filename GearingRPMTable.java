@@ -1,7 +1,6 @@
 import java.util.Scanner;
 import java.io.IOException;
 import java.lang.Math;
-import java.text.DecimalFormat;
 
 public class GearingRPMTable
 {
