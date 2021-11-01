@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.lang.Math;
 
-public class Speed
+public class Functions
 {
     public static Scanner sc = new Scanner (System.in);
 
