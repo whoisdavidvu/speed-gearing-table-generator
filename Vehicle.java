@@ -6,7 +6,7 @@ public class Vehicle
     public static Scanner sc = new Scanner (System.in);
     public static double differential;
     public static double gearing;
-    public static double revlimiter;
+    public static int revlimiter;
 
     public Vehicle(double diff, double gear, int redline)
     {
@@ -26,7 +26,7 @@ public class Vehicle
         gearing = sc.nextDouble();
 
         System.out.print("Enter the engine redline rpm: ");
-        revlimiter = sc.nextDouble();
+        revlimiter = sc.nextInt();
     }
 
     public static void main (String[] args) throws IOException
