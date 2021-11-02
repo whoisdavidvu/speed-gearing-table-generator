@@ -7,6 +7,7 @@ public class Vehicle
     public static double differential;
     public static double gearing;
     public static int revlimiter;
+    public static int rpmintervals;
 
     public Vehicle(double diff, double gear, int redline)
     {
@@ -25,8 +26,16 @@ public class Vehicle
         System.out.print("Enter transmission gearing: ");
         gearing = sc.nextDouble();
 
+    }
+
+    // Sets highest rpm to display in table and rpm jumps
+    public static void setRPMs()
+    {
         System.out.print("Enter the engine redline rpm: ");
         revlimiter = sc.nextInt();
+
+        System.out.print("Enter the rpm intervals to display on table: ");
+        rpmintervals = sc.nextInt();
     }
 
     public static void main (String[] args) throws IOException
