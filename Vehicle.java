@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -9,8 +10,10 @@ public class Vehicle
     public static int revlimiter;
     public static int rpmintervals;
     public static int gearcount;
-    public static double[] gearing;
+    //public static double[] gearing;
+    public static ArrayList<Double> gearing = new ArrayList<>();
 
+    // For later use
     /* public Vehicle(double differential_, double singlegear_, int revlimiter_, int gearcount_, double[] gearing_)
     {
         //super(tirewidth, tireaspectratio, wheeldiameter);
@@ -40,12 +43,12 @@ public class Vehicle
         System.out.print("Enter number of gears: ");
         gearcount = sc.nextInt();
 
-        double[] gearing = new double[gearcount];
+        //final double[] gearing = new double[gearcount];
 
         for (int gearpos = 0; gearpos < gearcount; gearpos++) 
         {
             System.out.print("Enter gearing of gear " + (gearpos+1) + ": ");
-            gearing[gearpos] = sc.nextDouble();
+            gearing.add(sc.nextDouble());
         }
 
         // for-loop to check result
@@ -68,6 +71,6 @@ public class Vehicle
     public static void main (String[] args) throws IOException
     {
         //System.out.println("Speed: " + getSpeed() + " km/h");
-        setGearing();
+        //setGearing();
     }
 }
