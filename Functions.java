@@ -34,13 +34,15 @@ public class Functions
         // Determines the number of rows needed for the table
         int rpmsteps;
         boolean hasLastRPMStep = false;
+
+        // Number of rpm steps for the table (+1 because 1000rpm has to be included)
         if (Vehicle.revlimiter % Vehicle.rpmintervals == 0)
         {
-            rpmsteps = Vehicle.revlimiter / Vehicle.rpmintervals;
+            rpmsteps = (Vehicle.revlimiter-1000) / Vehicle.rpmintervals + 1;
         }
         else 
         {
-            rpmsteps = (Vehicle.revlimiter / Vehicle.rpmintervals) + 1;
+            rpmsteps = ((Vehicle.revlimiter-1000) / Vehicle.rpmintervals) + 2;
             hasLastRPMStep = true;
         }
 
