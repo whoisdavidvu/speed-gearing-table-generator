@@ -53,7 +53,7 @@ public class Functions
             table[0][i] = "Gear " + i + ": " + Vehicle.gearing.get(i-1); 
         }
 
-        // Initialize first column with rpms and get first speed calculations
+        // Initialize first column with rpms and do speed calculations
         double localwheeldiameter = Wheel.getDiameter();
         for (int i = 1; i <= rpmsteps; i++)
         {

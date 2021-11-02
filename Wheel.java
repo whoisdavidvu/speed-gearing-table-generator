@@ -15,9 +15,9 @@ public class Wheel
         wheeldiameter = wheeldiameter_;
     } */
 
+    // Method to set tire size
     public static void setWheel()
     {
-        // Method to extract tire size from one-line console input
         System.out.print("Enter tire size (Example: 195 55 16 for 195/55R16): ");
         tirewidth = sc.nextInt();
         tireaspectratio = sc.nextInt();

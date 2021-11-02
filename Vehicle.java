@@ -10,7 +10,6 @@ public class Vehicle
     public static int revlimiter;
     public static int rpmintervals;
     public static int gearcount;
-    //public static double[] gearing;
     public static ArrayList<Double> gearing = new ArrayList<>();
 
     // For later use
@@ -35,6 +34,7 @@ public class Vehicle
         singlegear = sc.nextDouble();
     }
 
+    // Method to set a car's differential and transmission gearing
     public static void setGearing()
     {
         System.out.print("Enter differential gear ratio: ");
@@ -43,22 +43,14 @@ public class Vehicle
         System.out.print("Enter number of gears: ");
         gearcount = sc.nextInt();
 
-        //final double[] gearing = new double[gearcount];
-
         for (int gearpos = 0; gearpos < gearcount; gearpos++) 
         {
             System.out.print("Enter gearing of gear " + (gearpos+1) + ": ");
             gearing.add(sc.nextDouble());
         }
-
-        // for-loop to check result
-        /* for (int gearpos = 0; gearpos < gearcount; gearpos++)
-        {
-            System.out.print(gearing[gearpos] + " ");
-        } */
     }
 
-    // Sets highest rpm to display in table and rpm jumps
+    // Sets rev limiter to display in table and rpm jumps
     public static void setRPMs()
     {
         System.out.print("Enter the engine redline rpm: ");
