@@ -5,27 +5,52 @@ public class Vehicle
 {
     public static Scanner sc = new Scanner (System.in);
     public static double differential;
-    public static double gearing;
+    public static double singlegearing;
     public static int revlimiter;
     public static int rpmintervals;
+    public static int gearcount;
+    public static double[] gearing;
 
-    public Vehicle(double diff, double gear, int redline)
+    public Vehicle(double diff, double gear, int redline, int gears)
     {
         //super(tirewidth, tireaspectratio, wheeldiameter);
         differential = diff;
-        gearing = gear;
+        singlegearing = gear;
         revlimiter = redline;
+        gearcount = gears;
     }
 
-    // Sets variables for this vehicle's gearing
-    public static void setGearing()
+    // Sets variables for a single gear of this vehicle
+    public static void setSingleGearing()
     {
         System.out.print("Enter differential gear ratio: ");
         differential = sc.nextDouble();
 
         System.out.print("Enter transmission gearing: ");
-        gearing = sc.nextDouble();
+        singlegearing = sc.nextDouble();
+    }
 
+    public static void setGearing()
+    {
+        System.out.print("Enter differential gear ratio: ");
+        differential = sc.nextDouble();
+
+        System.out.print("Enter number of gears: ");
+        gearcount = sc.nextInt();
+
+        double[] gearing = new double[gearcount];
+
+        for (int gearpos = 0; gearpos < gearcount; gearpos++) 
+        {
+            System.out.print("Enter gearing of gear " + (gearpos+1) + ": ");
+            gearing[gearpos] = sc.nextDouble();
+        }
+
+        // for-loop to check result
+        /* for (int gearpos = 0; gearpos < gearcount; gearpos++)
+        {
+            System.out.print(gearing[gearpos] + " ");
+        } */
     }
 
     // Sets highest rpm to display in table and rpm jumps
@@ -41,5 +66,6 @@ public class Vehicle
     public static void main (String[] args) throws IOException
     {
         //System.out.println("Speed: " + getSpeed() + " km/h");
+        setGearing();
     }
 }
