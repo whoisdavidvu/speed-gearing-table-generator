@@ -8,12 +8,12 @@ public class Wheel
     public static int tireaspectratio;
     public static int wheeldiameter;
 
-    public Wheel(int width, int aspectratio, int rimdiameter)
+    /* public Wheel(int tirewidth_, int tireaspectratio_, int wheeldiameter_)
     {
-        tirewidth = width;
-        tireaspectratio = aspectratio;
-        wheeldiameter = rimdiameter;
-    }
+        tirewidth = tirewidth_;
+        tireaspectratio = tireaspectratio_;
+        wheeldiameter = wheeldiameter_;
+    } */
 
     public static void setWheel()
     {
