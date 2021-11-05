@@ -2,3 +2,4 @@
 tables/
 # Don't track these files
 *.csv
+.DS_Store
