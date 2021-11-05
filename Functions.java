@@ -80,7 +80,7 @@ public class Functions
         }
 
         // Saves data output into a .csv file
-        System.out.print("Do you wish to save this data in a .csv file? ");
+        System.out.print("Do you wish to save this data in a .csv file? (yes/no)");
         String csvprompt = sc.next();
         if (csvprompt.contains("yes"))
         {
