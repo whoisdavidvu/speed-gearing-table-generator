@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.io.FileWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.Math;
 
@@ -81,10 +80,10 @@ public class Functions
         }
 
         // Saves data output into a .csv file
-        /* System.out.print("Do you wish to save this data in a .csv file? ");
+        System.out.print("Do you wish to save this data in a .csv file? ");
         String csvprompt = sc.next();
-        if (csvprompt == "yes")
-        { */
+        if (csvprompt.contains("yes"))
+        {
             System.out.print("Set filename: ");
             String path = sc.next();
 
@@ -115,8 +114,8 @@ public class Functions
                 System.out.println(ex.toString());
                 System.out.println("Invalid input!");
             }
-        /* }
-        else { System.exit(0); } */ 
+        }
+        else { System.exit(0); } 
 
     }
 
