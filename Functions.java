@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.Math;
 
@@ -46,7 +48,7 @@ public class Functions
             hasLastRPMStep = true;
         }
 
-        final Object[][] table = new String[rpmsteps+1][Vehicle.gearcount+1];
+        final String[][] table = new String[rpmsteps+1][Vehicle.gearcount+1];
 
         // Initialize first row with information
         table[0][0] = "rpm";
@@ -69,13 +71,58 @@ public class Functions
             {
                 table[i][j] = getSpeed(rpms, Vehicle.gearing.get(j-1), localwheeldiameter) + " km/h";
             }
+
+            
         }
 
         // For printing table
         for (final Object[] row : table) {
             System.out.format("%-15s%15s%15s%15s%15s%15s%15s%n", row);
         }
+
+        // Saves data output into a .csv file
+        /* System.out.print("Do you wish to save this data in a .csv file? ");
+        String csvprompt = sc.next();
+        if (csvprompt == "yes")
+        { */
+            System.out.print("Set filename: ");
+            String path = sc.next();
+
+            try 
+            {
+                FileWriter writer = new FileWriter(path);
+
+                for (String[] data : table) 
+                {
+                    StringBuilder line = new StringBuilder();
+                    for (int i = 0; i < data.length; i++) 
+                    {
+                        line.append("\"");
+                        line.append(data[i].replaceAll("\"","\"\""));
+                        line.append("\"");
+                        if (i != data.length - 1) 
+                        {
+                            line.append(',');
+                        }
+                    }
+                    line.append("\n");
+                    writer.write(line.toString());
+                }
+                writer.close();
+            }
+            catch (IOException ex) 
+            {
+                System.out.println(ex.toString());
+                System.out.println("Invalid input!");
+            }
+        /* }
+        else { System.exit(0); } */ 
+
     }
+
+    
+
+    //Idea: output to csv file 
 
     public static void main (String[] args) throws IOException
     {
