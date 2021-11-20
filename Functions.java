@@ -74,13 +74,14 @@ public class Functions
             
         }
 
-        // For printing table (just 6 speed transmissions for now because of this)
+        // For printing table
+        String format = "%-15s" + "%15s".repeat(Vehicle.gearcount) + "%n";
         for (final Object[] row : table) {
-            System.out.format("%-15s%15s%15s%15s%15s%15s%15s%n", row);
+            System.out.format(format, row);
         }
 
         // Saves data output into a .csv file
-        System.out.print("Do you wish to save this data in a .csv file? (yes/no)");
+        System.out.print("Do you wish to save this data in a .csv file? (yes/no): ");
         String csvprompt = sc.next();
         if (csvprompt.contains("yes"))
         {
