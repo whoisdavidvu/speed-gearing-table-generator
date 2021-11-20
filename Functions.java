@@ -69,9 +69,7 @@ public class Functions
             for (int j = 1; j <= Vehicle.gearcount; j++)
             {
                 table[i][j] = getSpeed(rpms, Vehicle.gearing.get(j-1), localwheeldiameter) + " km/h";
-            }
-
-            
+            }         
         }
 
         // For printing table
@@ -87,11 +85,9 @@ public class Functions
         {
             System.out.print("Set filename: ");
             String path = sc.next();
-
             try 
             {
                 FileWriter writer = new FileWriter(path);
-
                 for (String[] data : table) 
                 {
                     StringBuilder line = new StringBuilder();
@@ -117,12 +113,7 @@ public class Functions
             }
         }
         else { System.exit(0); } 
-
     }
-
-    
-
-    //Idea: output to csv file 
 
     public static void main (String[] args) throws IOException
     {
