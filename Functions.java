@@ -74,7 +74,7 @@ public class Functions
             
         }
 
-        // For printing table
+        // For printing table (just 6 speed transmissions for now because of this)
         for (final Object[] row : table) {
             System.out.format("%-15s%15s%15s%15s%15s%15s%15s%n", row);
         }
