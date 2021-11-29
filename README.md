@@ -7,9 +7,9 @@ The table is then displayed in the command line and exported into a .csv file if
 # Usage
 Simply download this directory, then compile Functions.java file with
 ```
-javac Functions.java
+javac createTable.java
 ```
 then run the compiled file with 
 ```
-java Functions
+java createTable
 ```
