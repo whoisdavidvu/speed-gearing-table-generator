@@ -5,4 +5,11 @@ The table is then displayed in the command line and exported into a .csv file if
 <img width="764" alt="gearing-rpm-table-screenshot" src="https://user-images.githubusercontent.com/66746277/143864514-7564faf3-bb4e-48b7-bb69-3338bb06d0d0.png">
 
 # Usage
-Simply download this directory and run Functions.java
+Simply download this directory, then compile Functions.java file with
+```
+javac Functions.java
+```
+then run the compiled file with 
+```
+java Functions
+```
