@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.Math;
 
-public class Functions
+public class createTable
 {
     public static Scanner sc = new Scanner (System.in);
 
