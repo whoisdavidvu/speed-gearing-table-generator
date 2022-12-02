@@ -8,7 +8,7 @@ public class CreateTable
     public static Scanner sc = new Scanner (System.in);
 
     // Calculates the vehicle speed based on RPM, differential gearing, transmission gearing and wheel diameter.
-    public static String getSingleSpeed()
+    /* public static String getSingleSpeed()
     {
         Vehicle.setSingleGearing();
         System.out.print("Enter desired target rpm: ");
@@ -17,7 +17,7 @@ public class CreateTable
         // rpm * 60 (for revolutions per hour) * pi * diameter * 0.000001km (mm to km) / (gear ratio * axle ratio)
         double speed = (rpm * 60 * Math.PI * Wheel.getWheelDiameter() * 0.000001) / (Vehicle.singlegear * Vehicle.differentialGearing);
         return String.format("%.2f", speed);
-    }
+    } */
 
     public static String getMetricSpeed(int rpm, double gearratio, double wheeldiameter)
     {

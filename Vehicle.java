@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.IOException;
-
 public class Vehicle
 {
     public static Scanner sc = new Scanner (System.in);
@@ -12,27 +10,15 @@ public class Vehicle
     public static int maxGearCount;
     public static ArrayList<Double> gearingList = new ArrayList<>();
 
-    // For later use
-    /* public Vehicle(double differential_, double singlegear_, int revlimiter_, int gearcount_, double[] gearing_)
-    {
-        //super(tirewidth, tireaspectratio, wheeldiameter);
-        differential = differential_;
-        singlegear = singlegear_;
-        revlimiter = revlimiter_;
-        gearcount = gearcount_;
-        gearing = gearing_;
-
-    } */
-
     // Sets variables for a single gear of this vehicle
-    public static void setSingleGearing()
+    /* public static void setSingleGearing()
     {
         System.out.print("Enter differential gear ratio: ");
         differentialGearing = sc.nextDouble();
 
         System.out.print("Enter transmission gearing: ");
         singlegear = sc.nextDouble();
-    }
+    } */
 
     // Method to set a car's differential and transmission gearing
     public static void setGearing()
@@ -60,9 +46,4 @@ public class Vehicle
         rpmintervals = sc.nextInt();
     }
 
-    public static void main (String[] args) throws IOException
-    {
-        //System.out.println("Speed: " + getSpeed() + " km/h");
-        //setGearing();
-    }
 }
