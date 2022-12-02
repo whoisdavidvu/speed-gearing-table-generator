@@ -5,12 +5,12 @@ import java.io.IOException;
 public class Vehicle
 {
     public static Scanner sc = new Scanner (System.in);
-    public static double differential;
+    public static double differentialGearing;
     public static double singlegear;
     public static int revlimiter;
     public static int rpmintervals;
-    public static int gearcount;
-    public static ArrayList<Double> gearing = new ArrayList<>();
+    public static int maxGearCount;
+    public static ArrayList<Double> gearingList = new ArrayList<>();
 
     // For later use
     /* public Vehicle(double differential_, double singlegear_, int revlimiter_, int gearcount_, double[] gearing_)
@@ -28,7 +28,7 @@ public class Vehicle
     public static void setSingleGearing()
     {
         System.out.print("Enter differential gear ratio: ");
-        differential = sc.nextDouble();
+        differentialGearing = sc.nextDouble();
 
         System.out.print("Enter transmission gearing: ");
         singlegear = sc.nextDouble();
@@ -38,15 +38,15 @@ public class Vehicle
     public static void setGearing()
     {
         System.out.print("Enter differential gear ratio: ");
-        differential = sc.nextDouble();
+        differentialGearing = sc.nextDouble();
 
         System.out.print("Enter number of gears: ");
-        gearcount = sc.nextInt();
+        maxGearCount = sc.nextInt();
 
-        for (int gearpos = 0; gearpos < gearcount; gearpos++) 
+        for (int gearposition = 0; gearposition < maxGearCount; gearposition++) 
         {
-            System.out.print("Enter gearing of gear " + (gearpos+1) + ": ");
-            gearing.add(sc.nextDouble());
+            System.out.print("Enter gearing of gear " + (gearposition+1) + ": ");
+            gearingList.add(sc.nextDouble());
         }
     }
 

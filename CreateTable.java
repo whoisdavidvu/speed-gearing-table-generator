@@ -15,73 +15,73 @@ public class CreateTable
         int rpm = sc.nextInt();
 
         // rpm * 60 (for revolutions per hour) * pi * diameter * 0.000001km (mm to km) / (gear ratio * axle ratio)
-        double speed = (rpm * 60 * Math.PI * Wheel.getDiameter() * 0.000001) / (Vehicle.singlegear * Vehicle.differential);
+        double speed = (rpm * 60 * Math.PI * Wheel.getWheelDiameter() * 0.000001) / (Vehicle.singlegear * Vehicle.differentialGearing);
         return String.format("%.2f", speed);
     }
 
-    public static String getSpeed(int rpm, double gearratio, double wheeldiameter)
+    public static String getMetricSpeed(int rpm, double gearratio, double wheeldiameter)
     {
         // rpm * 60 (for revolutions per hour) * pi * diameter * 0.000001km (mm to km) / (gear ratio * axle ratio)
-        double speed = (rpm * 60 * Math.PI * wheeldiameter * 0.000001) / (gearratio * Vehicle.differential);
-        return String.format("%.2f", speed);
+        double metricSpeed = (rpm * 60 * Math.PI * wheeldiameter * 0.000001) / (gearratio * Vehicle.differentialGearing);
+        return String.format("%.2f", metricSpeed);
     }
 
     // Calculates speeds for a range of rpms and displays it as a table
-    public static void getTable()
+    public static void getSpeedRPMTable()
     {
         Vehicle.setGearing();
         Vehicle.setRPMs();
 
         // Determines the number of rows needed for the table
-        int rpmsteps;
+        int totalRPMSteps;
         boolean hasLastRPMStep = false;
 
         // Number of rpm steps for the table (+1 because 1000rpm has to be included)
         if (Vehicle.revlimiter % Vehicle.rpmintervals == 0)
         {
-            rpmsteps = (Vehicle.revlimiter-1000) / Vehicle.rpmintervals + 1;
+            totalRPMSteps = (Vehicle.revlimiter-1000) / Vehicle.rpmintervals + 1;
         }
         else 
         {
-            rpmsteps = ((Vehicle.revlimiter-1000) / Vehicle.rpmintervals) + 2;
+            totalRPMSteps = ((Vehicle.revlimiter-1000) / Vehicle.rpmintervals) + 2;
             hasLastRPMStep = true;
         }
 
-        final String[][] table = new String[rpmsteps+1][Vehicle.gearcount+1];
+        final String[][] table = new String[totalRPMSteps+1][Vehicle.maxGearCount+1];
 
         // Initialize first row with information
         table[0][0] = "rpm";
-        for (int i = 1; i < Vehicle.gearcount+1; i++)
+        for (int i = 1; i < Vehicle.maxGearCount+1; i++)
         {
-            table[0][i] = "Gear " + i + ": " + Vehicle.gearing.get(i-1); 
+            table[0][i] = "Gear " + i + ": " + Vehicle.gearingList.get(i-1); 
         }
 
         // Initialize first column with rpms and do speed calculations
-        double localwheeldiameter = Wheel.getDiameter();
-        for (int i = 1; i <= rpmsteps; i++)
+        double localWheelDiameter = Wheel.getWheelDiameter();
+        for (int currentRPMStep = 1; currentRPMStep <= totalRPMSteps; currentRPMStep++)
         {
-            int rpms = (1000+((i-1)*Vehicle.rpmintervals));
-            if (hasLastRPMStep && i == rpmsteps)
+            int currentRPMs = (1000+((currentRPMStep-1)*Vehicle.rpmintervals));
+            if (hasLastRPMStep && currentRPMStep == totalRPMSteps)
             {
-                rpms = Vehicle.revlimiter;
+                currentRPMs = Vehicle.revlimiter;
             }
-            table[i][0] = Integer.toString(rpms);
-            for (int j = 1; j <= Vehicle.gearcount; j++)
+            table[currentRPMStep][0] = Integer.toString(currentRPMs);
+            for (int currentGear = 1; currentGear <= Vehicle.maxGearCount; currentGear++)
             {
-                table[i][j] = getSpeed(rpms, Vehicle.gearing.get(j-1), localwheeldiameter) + " km/h";
+                table[currentRPMStep][currentGear] = getMetricSpeed(currentRPMs, Vehicle.gearingList.get(currentGear-1), localWheelDiameter) + " km/h";
             }         
         }
 
         // For printing table
-        String format = "%-15s" + "%15s".repeat(Vehicle.gearcount) + "%n";
+        String format = "%-15s" + "%15s".repeat(Vehicle.maxGearCount) + "%n";
         for (final Object[] row : table) {
             System.out.format(format, row);
         }
 
         // Saves data output into a .csv file
         System.out.print("Do you wish to save this data in a .csv file? (yes/no): ");
-        String csvprompt = sc.next();
-        if (csvprompt.contains("yes"))
+        String csvPrompt = sc.next();
+        if (csvPrompt.contains("yes"))
         {
             System.out.print("Set filename: ");
             String path = sc.next();
@@ -120,6 +120,6 @@ public class CreateTable
         //System.out.println("Speed: " + getSingleSpeed() + " km/h");
         //Vehicle.setGearing();
         //System.out.println(Vehicle.gearing.get(0));
-        getTable();
+        getSpeedRPMTable();
     }
 }
